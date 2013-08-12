@@ -57,10 +57,13 @@ class CustomerTable{
 
     public function saveCustomer(Customer $cus){
         $data = array(
-            'hoten' => $cus->hoten,
-            'dienthoai'  => $cus->dienthoai,
-            'email'  => $cus->email,
-            'diachi'  => $cus->diachi,
+            'customer_name' => $cus->customer_name,
+            'address'  => $cus->address,
+            'customer_phone'  => $cus->customer_phone,
+            'company_name'  => $cus->company_name,
+            'tax_id'  => $cus->tax_id,
+            'company_phone'  => $cus->company_phone,
+            'company_fax'  => $cus->company_fax,
         );
 
         $id = (int)$cus->id;
