@@ -37,5 +37,8 @@ return array(
         'template_path_stack' => array(
             'customer' => __DIR__ . '/../view',
         ),
+        'template_map' => array(
+            'adminLayout' => __DIR__.'/../view/templates/admin-main/layout.phtml'
+        )
     ),
 );

@@ -1,10 +1,10 @@
 <?php
 namespace Customer;
 
-/*use Customer\Model\Customer;
+use Customer\Model\Customer;
 use Customer\Model\CustomerTable;
 use Zend\Db\ResultSet\ResultSet;
-use Zend\Db\TableGateway\TableGateway;*/
+use Zend\Db\TableGateway\TableGateway;
 
 
 class Module
@@ -22,7 +22,7 @@ class Module
     {
         return include __DIR__ . '/config/module.config.php';
     }
-/*
+
     // Add this method:
     /// Kết nối tới CSDL của model
     ///1. khai báo bản nào cần truy xuất tới
@@ -31,17 +31,19 @@ class Module
         return array(
             'factories' => array(
                 'Customer\Model\CustomerTable' =>  function($sm) {
-                    $tableGateway = $sm->get('CustomerTableGateway');
+                    $tableGateway = $sm->get('vela_customerTableGateway');
                     $table = new CustomerTable($tableGateway);
+
+
                     return $table;
                 },
-                'CustomerTableGateway' => function ($sm) {
+                'vela_customerTableGateway' => function ($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Customer());
-                    return new TableGateway('customer', $dbAdapter, null, $resultSetPrototype);
+                    return new TableGateway('vela_customers', $dbAdapter, null, $resultSetPrototype);
                 },
             ),
         );
-    }*/
+    }
 }

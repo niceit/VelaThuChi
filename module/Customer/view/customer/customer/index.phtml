@@ -1,0 +1,60 @@
+<div class="row-fluid">
+    <div class="span12">
+        <div class="widget">
+            <div class="widget-title">
+                <h4><i class="icon-reorder"></i>Customer</h4>
+                <span class="tools">
+                    <a class="icon-chevron-down" href="javascript:;"></a>
+                    <a class="icon-remove" href="javascript:;"></a>
+                </span>
+            </div>
+            <div class="widget-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Full Name</th>
+                        <th>Address</th>
+                        <th >Customer Phone</th>
+                        <th>Company Name</th>
+                        <th>Tax ID</th>
+                        <th>Company Phone</th>
+                        <th>Company Fax</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($this->customer_list as $cus){
+                    ?>
+                    <tr>
+                        <td><?php echo $cus->id ?></td>
+                        <td><?php echo $cus->customer_name ?></td>
+                        <td><?php echo $cus->address ?></td>
+                        <td><?php echo $cus->customer_phone ?></td>
+                        <td><?php echo $cus->company_name ?></td>
+                        <td><?php echo $cus->tax_id ?></td>
+                        <td><?php echo $cus->company_phone ?></td>
+                        <td><?php echo $cus->company_fax ?></td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php // add at the end of the file after the table
+
+echo $this->paginationControl(
+// the paginator object
+    $this->customer_list,
+    // the scrolling style; see http://zf2.readthedocs.org/en/release-2.1.4/modules/zend.paginator.usage.html#rendering-pages-with-view-scripts
+    'sliding',
+    // the partial to use to render the control
+    array('partial/paginator.phtml', 'customer'),
+    // the route to link to when a user clicks a control link
+    array(
+        'route' => 'customer'
+    )
+);
+?>
