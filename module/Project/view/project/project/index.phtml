@@ -1,0 +1,48 @@
+<div class="row-fluid">
+    <div class="span12">
+        <div class="widget">
+            <div class="widget-title">
+                <h4><i class="icon-reorder"></i>Project</h4>
+                <span class="tools">
+                    <!--
+                    <a class="icon-chevron-down" href="javascript:;"></a>
+                    <a class="icon-remove" href="javascript:;"></a> -->
+                    <a href="<?php echo $this->url('project', array('action'=>'add'));?>"><i class="icon-plus
+                    icon-white"></i></a>
+                </span>
+            </div>
+            <div class="widget-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Project Name</th>
+                        <th >Project Descriptions</th>
+                        <th>Customer Id</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($this->project_list as $pro){
+                       // echo '<pre>';
+                       // print_r($pro);
+                       // echo '</pre>';
+
+                        ?>
+                        <tr>
+                            <td><?php echo $pro->id ?></td>
+                            <td><?php echo $pro->project_name ?></td>
+                            <td><?php echo $pro->project_descriptions ?></td>
+                            <td><?php echo $pro->customer_id ?></td>
+
+                            <td>
+                                <a class="icon-pencil icon-white" href="<?php echo $this->url('project', array('action'=>'edit','id'=>$pro->id));?>"></a>
+                                <a class="icon-remove" href="<?php echo $this->url('project', array('action'=>'delete','id'=>$pro->id));?>"></a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
